@@ -1,0 +1,48 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+/*
+ * java plugin settings
+ */
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+jar {
+  baseName = 'java-base'
+  version = '0.0.1-SNAPSHOT'
+}
+
+/*
+ * application plugin settings
+ */
+mainClassName = 'com.example.Main'
+
+/*
+ * javac encoding settings
+ */
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+//tasks.withType(Compile){ options.encoding = 'UTF-8' }
+
+/*
+ * dependency settings
+ */
+repositories {
+  jcenter()
+}
+
+dependencies {
+  compile 'org.slf4j:slf4j-api:1.7.12'
+  testCompile 'junit:junit:4.12'
+}
+
+/*
+ * task definitions
+ */
+task initDirs {
+  sourceSets*.java.srcDirs*.each {
+    it.mkdirs()
+  }
+  sourceSets*.resources.srcDirs*.each {
+    it.mkdirs()
+  }
+}
