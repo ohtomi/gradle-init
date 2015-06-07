@@ -15,13 +15,14 @@ jar {
 /*
  * application plugin settings
  */
+applicationName = 'java-base'
 mainClassName = 'com.example.Main'
 
 /*
  * javac encoding settings
  */
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
-//tasks.withType(Compile){ options.encoding = 'UTF-8' }
+//tasks.withType(JavaCompile){ options.encoding = 'UTF-8' }
 
 /*
  * dependency settings
