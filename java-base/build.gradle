@@ -7,6 +7,14 @@ apply plugin: 'application'
 sourceCompatibility = '1.8'
 targetCompatibility = '1.8'
 
+processResources {
+  getProperty('native2ascii.target.extensions').tokenize(',').each {
+    filesMatching('**/*.' + it) {
+      filter(org.apache.tools.ant.filters.EscapeUnicode)
+    }
+  }
+}
+
 jar {
   baseName = 'java-base'
   version = '0.0.1-SNAPSHOT'
