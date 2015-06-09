@@ -1,5 +1,8 @@
-apply plugin: 'java'
-apply plugin: 'application'
+plugins {
+  id 'java'
+  id 'application'
+  id 'eu.appsatori.fatjar' version '0.3'
+}
 
 /*
  * java plugin settings
@@ -16,15 +19,38 @@ processResources {
 }
 
 jar {
-  baseName = 'java-base'
-  version = '0.0.1-SNAPSHOT'
+  baseName = myAppTitle
+  version = myAppVersion
+
+  manifest {
+    attributes(
+      'Main-Class': myAppMainClass,
+      'Implementation-Title': myAppTitle,
+      'Implementation-Version': myAppVersion)
+  }
 }
 
 /*
  * application plugin settings
  */
-applicationName = 'java-base'
-mainClassName = 'com.example.Main'
+applicationName = myAppTitle
+mainClassName = myAppMainClass
+
+/*
+ * fatjar plugin settings
+ */
+fatJar {
+  baseName = myAppTitle
+  version myAppVersion
+  classifier 'all-in-one'
+
+  manifest {
+    attributes(
+      'Main-Class': myAppMainClass,
+      'Implementation-Title': myAppTitle,
+      'Implementation-Version': myAppVersion)
+  }
+}
 
 /*
  * javac encoding settings
