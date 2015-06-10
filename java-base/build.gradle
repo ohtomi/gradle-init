@@ -11,7 +11,7 @@ sourceCompatibility = '1.8'
 targetCompatibility = '1.8'
 
 processResources {
-  getProperty('native2ascii.target.extensions').tokenize(',').each {
+  project.ext['native2ascii.target.extensions'].tokenize(',').each {
     filesMatching('**/*.' + it) {
       filter(org.apache.tools.ant.filters.EscapeUnicode)
     }
