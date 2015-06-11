@@ -1,4 +1,4 @@
 # gradle-init
 
-* [java-base](java-base)
+* [java-signle](java-single)
   -- A single java application project
