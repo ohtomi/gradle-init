@@ -1,1 +1,37 @@
-defaultTasks 'build'
+subprojects {
+
+  apply plugin: 'java'
+
+  /*
+   * java plugin settings
+   */
+  sourceCompatibility = '1.8'
+  targetCompatibility = '1.8'
+
+  processResources {
+    project.ext['native2ascii.target.extensions'].tokenize(',').each {
+      filesMatching('**/*.' + it) {
+        filter(org.apache.tools.ant.filters.EscapeUnicode)
+      }
+    }
+  }
+
+  /*
+   * javac encoding settings
+   */
+  [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+  //tasks.withType(JavaCompile){ options.encoding = 'UTF-8' }
+
+  /*
+   * task definitions
+   */
+  task initDirs(description: '''Creates 'java' and 'resources' directories under all sourceSets''') << {
+    sourceSets*.java.srcDirs*.each {
+      it.mkdirs()
+    }
+    sourceSets*.resources.srcDirs*.each {
+      it.mkdirs()
+    }
+  }
+
+}
