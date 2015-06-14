@@ -30,6 +30,14 @@ jar {
   }
 }
 
+test {
+  maxParallelForks = 1
+  forkEvery = 100
+  minHeapSize = '128m'
+  maxHeapSize = '128m'
+  jvmArgs = ['-XX:+UseG1GC']
+}
+
 /*
  * application plugin settings
  */
