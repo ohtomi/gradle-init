@@ -38,6 +38,7 @@ build - Assembles and tests this project.
 buildDependents - Assembles and tests this project and all projects that depend on it.
 buildNeeded - Assembles and tests this project and all projects it depends on.
 classes - Assembles classes 'main'.
+integrationTestClasses - Assembles classes 'integrationTest'.
 jar - Assembles a jar archive containing the main classes.
 testClasses - Assembles classes 'test'.
 
