@@ -33,6 +33,8 @@ subprojects {
   /*
    * task definitions
    */
+  apply from: "${rootDir}/gradle/integrationTest.gradle"
+
   task initDirs(description: '''Creates 'java' and 'resources' directories under all sourceSets''') << {
     sourceSets*.java.srcDirs*.each {
       it.mkdirs()
