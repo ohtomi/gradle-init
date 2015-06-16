@@ -96,6 +96,7 @@ Rules
 Pattern: clean<TaskName>: Cleans the output files of a task.
 Pattern: build<ConfigurationName>: Assembles the artifacts of a configuration.
 Pattern: upload<ConfigurationName>: Assembles and uploads the artifacts belonging to a configuration.
+Pattern: copyProfileResource<ProfileName>: Copies the resource files of a profile.
 
 ```
 

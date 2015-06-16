@@ -93,3 +93,18 @@ task initDirs(description: '''Creates 'java' and 'resources' directories under a
     it.mkdirs()
   }
 }
+
+tasks.addRule('''Pattern: copyProfileResource<ProfileName>: Copies the resource files of a profile.''') {
+  taskName ->
+  def profileName = taskName.replace('copyProfileResource', '').toLowerCase()
+  if (taskName.startsWith('copyProfileResource')) {
+    task (taskName, type: Copy) {
+      from "profiles/${profileName}"
+      into sourceSets.main.output.resourcesDir
+    }
+  }
+}
+def activeProfileName = myActiveProfile.substring(0, 1).toUpperCase() + \
+                        myActiveProfile.substring(1).toLowerCase()
+def taskName = 'copyProfileResource' + activeProfileName
+classes.dependsOn taskName
