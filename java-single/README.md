@@ -84,6 +84,7 @@ Verification tasks
 ------------------
 check - Runs all checks.
 clean - Deletes the build directory.
+integrationTest - Runs the integration tests.
 test - Runs the unit tests.
 
 Other tasks
