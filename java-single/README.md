@@ -11,6 +11,7 @@ A single java application project.
 
 - custom tasks
   - initDirs
+  - copyProfileResource<ProfileName>
 
 - dependencies
   - slf4j
