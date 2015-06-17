@@ -90,6 +90,8 @@ test - Runs the unit tests.
 
 Other tasks
 -----------
+checkstyleIntegrationTest - Run Checkstyle analysis for integrationTest classes
+checkstyleTest - Run Checkstyle analysis for test classes
 initDirs - Creates 'java' and 'resources' directories under all sourceSets
 
 Rules
