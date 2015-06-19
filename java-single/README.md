@@ -95,6 +95,7 @@ checkstyleTest - Run Checkstyle analysis for test classes
 findbugsIntegrationTest - Run FindBugs analysis for integrationTest classes
 findbugsTest - Run FindBugs analysis for test classes
 initDirs - Creates 'java' and 'resources' directories under all sourceSets
+jacocoTestReport
 
 Rules
 -----
