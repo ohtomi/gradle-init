@@ -4,6 +4,7 @@ plugins {
   id 'eu.appsatori.fatjar' version '0.3'
   id 'checkstyle'
   id 'findbugs'
+  id 'jacoco'
 }
 
 /*
@@ -79,6 +80,13 @@ findbugs {
   toolVersion = '3.0.1'
   ignoreFailures = true
   sourceSets = [sourceSets.main]
+}
+
+/*
+ * jacoco plugin settings
+ */
+jacoco {
+  toolVersion = '0.7.5.201505241946'
 }
 
 /*
