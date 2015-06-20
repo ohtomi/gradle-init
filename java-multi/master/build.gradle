@@ -1,6 +1,9 @@
 subprojects {
 
   apply plugin: 'java'
+  apply plugin: 'checkstyle'
+  apply plugin: 'findbugs'
+  apply plugin: 'jacoco'
 
   /*
    * java plugin settings
@@ -22,6 +25,32 @@ subprojects {
     minHeapSize = '128m'
     maxHeapSize = '128m'
     jvmArgs = ['-XX:+UseG1GC']
+  }
+
+  /*
+   * checkstyle plugin settings
+   */
+  checkstyle {
+    configFile = file("${rootDir}/gradle/checkstyle/sun_checks.xml")
+    toolVersion = '6.7'
+    ignoreFailures = true
+    sourceSets = [sourceSets.main]
+  }
+
+  /*
+   * findbugs plugin settings
+   */
+  findbugs {
+    toolVersion = '3.0.1'
+    ignoreFailures = true
+    sourceSets = [sourceSets.main]
+  }
+
+  /*
+   * jacoco plugin settings
+   */
+  jacoco {
+    toolVersion = '0.7.5.201505241946'
   }
 
   /*
