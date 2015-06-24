@@ -8,6 +8,9 @@ A single java application project.
   - java
   - application
   - fatjar
+  - checkstyle
+  - findbugs
+  - jacoco
 
 - custom tasks
   - initDirs
@@ -15,8 +18,9 @@ A single java application project.
 
 - dependencies
   - slf4j
-  - logback-clasic
+  - logback-classic
   - junit
+  - mockito
 
 ## Requirements
 

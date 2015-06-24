@@ -2,7 +2,7 @@
 
 ## Description
 
-A single java application project.
+A spring boot web application project.
 
 - plugins
   - java
@@ -18,7 +18,7 @@ A single java application project.
 - dependencies
   - spring-boot
   - slf4j
-  - logback-clasic
+  - logback-classic
   - junit
   - mockito
 
