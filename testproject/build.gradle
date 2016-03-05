@@ -1,0 +1,7 @@
+buildscript {
+    dependencies {
+        classpath files('../groovy/build/libs/gradle-xxx-plugin-groovy.jar')
+    }
+}
+
+apply plugin: 'com.github.ohtomi.gradle-xxx-plugin.groovy'
