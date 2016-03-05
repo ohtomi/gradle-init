@@ -16,12 +16,22 @@ buildscript {
 }
 
 apply plugin: 'com.github.ohtomi.gradle-xxx-plugin.groovy'
+
+hello {
+    value = 'extensions-value'
+}
+
+task greeting(type: com.example.PluginTask) {
+    filePath = "$buildDir/greeting.txt"
+    fileContent = 'Hello, world'
+}
 ```
 
 ```bash
-$ gradle --daemon hello
-:hello
-Hello world
+$ gradle --daemon hello greeting
+:greeting
+Hello world! value=extensions-value
+file created. path: /Users/ohtomi/localrepo/gradle-xxx-plugin/testproject/build/greeting.txt
 
 BUILD SUCCESSFUL
 

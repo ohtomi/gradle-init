@@ -7,9 +7,7 @@ class PluginMain implements Plugin<Project> {
 
     @Override
     void apply(Project project) {
-        project.task('hello') << {
-            println 'Hello world'
-        }
+        project.extensions.create('hello', PluginConfiguration)
     }
 
 }
