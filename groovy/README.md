@@ -28,7 +28,7 @@ task greeting(type: com.example.PluginTask) {
 ```
 
 ```bash
-$ gradle --daemon hello greeting
+$ gradle --daemon greeting
 :greeting
 Hello world! value=extensions-value
 file created. path: /Users/ohtomi/localrepo/gradle-xxx-plugin/testproject/build/greeting.txt
