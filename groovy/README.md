@@ -4,7 +4,7 @@
 Sample Gradle Plugins in Groovy.
 
 ## Requirements
-- Gradle 2.9+
+- Gradle 3.0
 
 ## How to use
 ```groovy
