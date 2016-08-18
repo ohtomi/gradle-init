@@ -1,0 +1,16 @@
+buildscript {
+    dependencies {
+        classpath files('../kotlin/build/libs/gradle-xxx-plugin-kotlin.jar')
+    }
+}
+
+apply plugin: 'com.github.ohtomi.gradle-xxx-plugin.kotlin'
+
+hello {
+    value = 'extensions-value'
+}
+
+task greeting(type: com.example.PluginTask) {
+    filePath = "$buildDir/greeting.txt"
+    fileContent = 'Hello, world'
+}
