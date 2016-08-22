@@ -5,29 +5,26 @@ buildscript {
     extra["kotlin_version"] = "1.0.3"
 
     repositories {
-        maven {
-            setUrl("https://repo.gradle.org/gradle/repo")
-        }
+        gradleScriptKotlin()
     }
 
     dependencies {
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${extra["kotlin_version"]}")
         classpath(kotlinModule("gradle-plugin"))
     }
-}
-
-repositories {
-    gradleScriptKotlin()
-    jcenter()
 }
 
 apply {
     plugin("kotlin")
 }
 
+
+repositories {
+    gradleScriptKotlin()
+    jcenter()
+}
+
 dependencies {
     compile(kotlinModule("stdlib", extra["kotlin_version"] as String))
-    compile(kotlinModule("gradle-plugin-api"))
     compile("org.jetbrains.kotlin:gradle-api:1.6")
 }
 
