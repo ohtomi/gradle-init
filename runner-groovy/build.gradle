@@ -4,7 +4,10 @@ buildscript {
     }
 }
 
-apply plugin: 'com.github.ohtomi.gradle-xxx-plugin.groovy'
+apply {
+    plugin 'com.github.ohtomi.gradle-xxx-plugin.groovy'
+}
+
 
 hello {
     value = 'extensions-value'
