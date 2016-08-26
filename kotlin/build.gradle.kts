@@ -1,20 +1,26 @@
 import org.gradle.jvm.tasks.Jar
+import org.jetbrains.dokka.gradle.DokkaTask
+import org.jetbrains.dokka.gradle.LinkMapping
 
 
 buildscript {
     extra["kotlin_version"] = "1.0.3"
+    extra["dokka_version"] = "0.9.9"
 
     repositories {
         gradleScriptKotlin()
+        jcenter()
     }
 
     dependencies {
         classpath(kotlinModule("gradle-plugin"))
+        classpath("org.jetbrains.dokka:dokka-gradle-plugin:${extra["dokka_version"]}")
     }
 }
 
 apply {
     plugin("kotlin")
+    plugin("org.jetbrains.dokka")
 }
 
 
@@ -35,4 +41,16 @@ dependencies {
 tasks.withType<Jar> {
     baseName = "gradle-xxx-plugin-kotlin"
 //    from(stdlibJars)
+}
+
+tasks.withType<DokkaTask> {
+    moduleName = "com.example"
+    outputFormat = "javadoc"
+    outputDirectory = "${buildDir.absolutePath}/javadoc"
+    linkMappings = java.util.ArrayList(listOf(LinkMapping().apply {
+        dir = "src/main/kotlin"
+        url = "https://github.com/ohtomi/gradle-xxx-plugin/blob/master/src/kotlin"
+        suffix = "#L"
+    }))
+    sourceDirs = files("src/main/kotlin")
 }
